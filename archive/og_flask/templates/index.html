@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Task Master</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">There are no tasks. Create one below!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Summary</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.content_summary }}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{task.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <body>
+        {{ outputs }}
+    </body>
+
+    {% endif %}
+
+    <body>
+        <h1>Survey Questions</h1>
+        <form method="POST">
+            <label for="content">What seems to be the issue?</label>
+            <br>
+            <input type="text" name="content" id="content">
+            <br><br>
+            <!-- First Question -->
+            <label for="location">Where do you live?</label>
+            <br>
+            <select name="location" id="location" multiple>
+                {% for state in states %}
+                    <option value="{{ state }}">{{ state }}</option>
+                {% endfor %}
+            </select>
+            <br><br> <!-- Added a line break for spacing -->
+    
+            <!-- Second Question -->
+            <label for="options">Select all keywords from the below list that relate to your concern:</label>
+            <br>
+            <div id="options">
+                {% for keyword in keywords %}
+                    <label class="bubble-option">
+                        <input type="checkbox" name="options" value="{{ keyword }}">
+                        <span>{{ keyword }}</span> <!-- Add this span -->
+                    </label>
+                {% endfor %}
+            </div>
+            <br><br> <!-- Added a line break for spacing -->
+    
+            <!-- Single Submit Button -->
+            <input type="submit" value="Submit">
+        </form>
+    
+
+        
+    </body>
+        
+
+
+
+</div>
+{% endblock %}

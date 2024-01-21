@@ -1,0 +1,63 @@
+body, html {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: lightblue;
+}
+
+.content {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+table, td, th {
+    border: 1px solid #aaa;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.form {
+    margin-top: 20px;
+}
+
+.bubble-option {
+    display: inline-block;
+    margin: 10px; /* Increased margin for more space */
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 15px; /* Rounded borders */
+    background-color: #f0f0f0;
+}
+
+.bubble-option input[type="checkbox"] {
+    display: none; /* Hide the default checkbox */
+}
+
+.bubble-option:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+/* Style for checked state */
+.bubble-option input[type="checkbox"]:checked + span {
+    display: inline-block;
+    padding: 10px; /* Maintain padding from .bubble-option */
+    border: 2px solid #000;
+    border-radius: 15px; /* Rounded borders */
+    background-color: #5A5A5A; /* Darker color when checked */
+    border-radius: 15px; /* To maintain the rounded corners */
+}
+
+
+
